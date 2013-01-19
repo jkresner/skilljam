@@ -1,5 +1,9 @@
+var jammers = require('./api/jammers');
+
 var express = require('express');
 var app = express();
+
+
 
 app.get('/', function(req, res){
   var body = 'Welcome to Skilljam';
@@ -9,5 +13,11 @@ app.get('/', function(req, res){
 });
 
 
+app.get('/jammers', jammers.findAll);
+app.get('/jammers/:id', jammers.findById);
+
 app.listen(3000);
+
+
+
 console.log('Listening on port 3000');
