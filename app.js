@@ -14,10 +14,17 @@ app.get('/', function(req, res){
 
 
 app.get('/jammers', jammers.findAll);
+app.get('/jammers/add', jammers.add);
 app.get('/jammers/:id', jammers.findById);
+
+
 
 app.listen(3000);
 
 
 
 console.log('Listening on port 3000');
+
+
+
+
