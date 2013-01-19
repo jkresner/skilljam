@@ -3,14 +3,16 @@ var jammers = require('./api/jammers');
 var express = require('express');
 var app = express();
 
-
-
-app.get('/', function(req, res){
-  var body = 'Welcome to Skilljam';
-  res.setHeader('Content-Type', 'text/plain');
-  res.setHeader('Content-Length', body.length);
-  res.end(body);
+app.configure(function () {
+    app.use(express.static(__dirname + '/public'));
 });
+
+// app.get('/', function(req, res){
+//   var body = 'Welcome to Skilljam';
+//   res.setHeader('Content-Type', 'text/plain');
+//   res.setHeader('Content-Length', body.length);
+//   res.end(body);
+// });
 
 
 app.get('/jammers', jammers.findAll);
