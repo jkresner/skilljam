@@ -51,7 +51,6 @@
 <div class="container">
 
     <div class="row">
-
         <div id="content">
         </div>
     </div>
@@ -80,6 +79,7 @@
 <script src="js/views/jammerbrowse.js"></script>
 <script src="js/views/jammerlist.js"></script>
 <script src="js/views/jammerdetails.js"></script>
+<script src="js/views/jammerprofile.js"></script>
 <script src="js/views/about.js"></script>
 <script src="js/main.js"></script>
 
@@ -105,6 +105,50 @@
       </ul>
   </div>
 
+</script>
+
+<script type="text/template" id="JammerProfileView">
+
+<div class="profilepage span2">
+    <img class="kenny" src="pics/<%= picture %>"/>
+</div>
+<div class="profilepage span6">
+    <p><%= name %></p>
+    <img class="social" src="img/github.png"/>
+    <img class="social" src="img/twitter.png"/>
+    <img class="social" src="img/linkedin.png"/>
+</div>
+<div class="jbank span4">
+    <ul>
+        <li class="banktext">JAM BANK</li>
+        <li class="bank">
+             <p class="number">37</p>
+             <p class="unit">hours</p>
+        </li>
+    </ul>
+</div>
+
+
+<div>
+    <div class="jamrequest span12">
+        <p>Request a jam:</p>
+    </div>
+    <div class="jam">
+        <ul style="margin-left:20px">
+            <li><a href="/request.html"><span class = 'label label-warning'>javascript</span></a></li>
+            <li><a href="/request.html"><span class = 'label label-important'>php</span></a></li>
+            <li><a href="/request.html"><span class = 'label label-success'>mySQL</span></a></li>
+        </ul>
+    </div>
+</div>
+
+<div>
+    <div class="bio span12">
+       <p> I am an American singer and songwriter.
+       I am known for soft rock music beginning during the 1970s, and
+        later for writing and performing for movie soundtracks in the 1980s. </p>
+    </div>
+</div>
 
 </script>
 

@@ -5,6 +5,7 @@ var AppRouter = Backbone.Router.extend({
         "/page/:page"	      : "list",
         "jammers/add"         : "addJammer",
         "jammer/:id"          : "jammerDetails",
+        "profile/:id"          : "jammerProfile",
         "about"               : "about",
     },
 
@@ -46,9 +47,9 @@ var AppRouter = Backbone.Router.extend({
     },
 
     jammerDetails: function (id) {
-        this.jammerListView.clearRender();
+        if (this.jammers.length = 0) { return this.navigate("#"); }
+        if (this.jammerListView) { this.jammerListView.clearRender(); }
 
-        if (this.jammers.length = 0) { return this.navigate("#list"); }
         idstr = id.toString();
         var jammer = _.find(this.jammers.models, function(m) { return m.get('_id') == idstr});
 
@@ -59,6 +60,18 @@ var AppRouter = Backbone.Router.extend({
         var jammer = new Jammer();
         $('#content').html(new JammerView({model: jammer}).el);
 	},
+
+    // static cheat hack
+    jammerProfile: function (id) {
+        if (this.jammers.length = 0) { return this.navigate("#"); }
+        if (this.jammerListView) { this.jammerListView.clearRender(); }
+
+        idstr = id.toString();
+        var jammer = _.find(this.jammers.models, function(m) { return m.get('_id') == idstr});
+
+        $("#content").html(new JammerProfileView({model: jammer}).el);
+    },
+
 
     about: function () {
         this.jammerListView.clearRender();

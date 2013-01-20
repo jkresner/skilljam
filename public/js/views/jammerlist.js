@@ -7,7 +7,7 @@ window.JammerListView = Backbone.View.extend({
 
         var jammers = this.collection.models;
 
-        console.log('JammerListView.render', this.collection.models.length);
+        //console.log('JammerListView.render', this.collection.models.length);
 
         $(this.el).html('<div id="jammers_tiles" class="profiles span12"><ul class="thumbnails"></ul></div>');
 
@@ -19,7 +19,7 @@ window.JammerListView = Backbone.View.extend({
             for (var s = 0; s < skills_array.length; s++) {
                 skills_string += " " + skills_array[s].replace(' ','-');
             }
-            console.log('skills_string', skills_string);
+            //console.log('skills_string', skills_string);
 
             $('.thumbnails', this.el).append(
                 new JammerListItemView({

@@ -14,7 +14,7 @@ body{
     height:80px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     width:100%;
-
+    
 }
 
 ul{
@@ -68,17 +68,17 @@ a.lighter, p.lighter{
 }
 
 .search{
-    width:97% !important;
-    height:50px !important;
+    width:97%;
+    height:50px;
     background-color:#c5d7d7 !important;
-    box-shadow:0 !important;
-    border:0px !important;
-    border-radius:20px !important;
-    color:#1b3a39 !important;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif !important;
-    font-size:24px !important;
-    font-weight:300 !important;
-    padding-left:3% !important;
+    box-shadow:0;
+    border:0px;
+    border-radius:20px;
+    color:#1b3a39;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size:24px;
+    font-weight:300;
+    padding-left:3%;
 }
 
 .popular{
@@ -96,12 +96,12 @@ a.lighter, p.lighter{
         -webkit-transition: background 0.5s;
         background:black !important;
     }
-
+    
     .popular a{
         color:#c5d7d7;
         text-decoration:none;
     }
-
+    
 li.highlight{
     background-color:#1b3a38 !important;
 }
@@ -113,7 +113,7 @@ li.last{
 
 /*Search searchable profiles*/
 .profiles{
-
+    
 }
 
     .profiles li{
@@ -130,18 +130,18 @@ li.last{
         line-height:21px;
         margin-bottom:30px;
     }
-
+    
     .profiles li:hover{
         -webkit-transition: background 0.5s;
         background:black !important;
     }
-
+    
     .profiles li img{
         margin-bottom:10px;
         border-radius:10px;
-
+        
     }
-
+    
 
 
 /*---------------------*/
@@ -159,18 +159,18 @@ li.last{
         width:139px;
         height:139px;
     }
-
+    
     .profilepage p{
         margin-left:0;
         padding-left:0;
     }
-
+    
 .social{
         margin-right:20px;
         margin-top:15px;
     }
-
-/*bank counter and text*/
+   
+/*bank counter and text*/ 
 .jbank{
     margin-top:85px;
     color:#132623;
@@ -201,31 +201,32 @@ li.last{
         color:#C5D7D7;
         margin-left:35px;
     }
- /*larger text for number in jam bank*/
+ /*larger text for number in jam bank*/  
     .number{
         font-size:36px;
         padding-top:22px;
     }
-
+    
     .unit{
         font-size:18px;
     }
-
+    
 .jamrequest{
     margin-top:20px;
 }
-
+    
 /*bio description profile page*/
 .bio{
     background-color:#C5D7D7;
     border-radius:20px;
     color:#1B3A39;
+    margin-top: 20px;
 }
     .bio p{
         margin:20px;
         font-size:18px;
     }
-
+    
 
 
         /* Alyssa's Code */
@@ -360,53 +361,69 @@ footer {
     overflow: hidden;
 }
 
-/**** Isotope Filtering ****/
+/* profile */
 
-.isotope-item {
-  z-index: 2;
+.jam li {
+    float: left;
 }
 
-.isotope-hidden.isotope-item {
-  pointer-events: none;
-  z-index: 1;
+.jam li span:hover {
+    color: black !important;
 }
 
-/**** Isotope CSS3 transitions ****/
-
-.isotope,
-.isotope .isotope-item {
-  -webkit-transition-duration: 0.8s;
-     -moz-transition-duration: 0.8s;
-      -ms-transition-duration: 0.8s;
-       -o-transition-duration: 0.8s;
-          transition-duration: 0.8s;
+.jam ul {
+    padding-left: 20px;
 }
 
-.isotope {
-  -webkit-transition-property: height, width;
-     -moz-transition-property: height, width;
-      -ms-transition-property: height, width;
-       -o-transition-property: height, width;
-          transition-property: height, width;
+input:focus {
+    outline: none;
 }
 
-.isotope .isotope-item {
-  -webkit-transition-property: -webkit-transform, opacity;
-     -moz-transition-property:    -moz-transform, opacity;
-      -ms-transition-property:     -ms-transform, opacity;
-       -o-transition-property:      -o-transform, opacity;
-          transition-property:         transform, opacity;
+/* request */
+
+.request {
+    width: 720px;
+    border-radius: 20px;
+    padding: 30px;
+    background: #c5d7d7;
+    border: 3px solid #96a3a2;
+    margin-top: 80px;
+    margin-left: 80px;
 }
 
-/**** disabling Isotope CSS3 transitions ****/
-
-.isotope.no-transition,
-.isotope.no-transition .isotope-item,
-.isotope .isotope-item.no-transition {
-  -webkit-transition-duration: 0s;
-     -moz-transition-duration: 0s;
-      -ms-transition-duration: 0s;
-       -o-transition-duration: 0s;
-          transition-duration: 0s;
+.request p {
+    font-size: 24px;
+    color: #96a3a2;
 }
 
+textarea {
+    width: 96%;
+    border: none;
+    background: #f1f2f2;
+    border-radius: 15px;
+    height: 70px;
+    padding: 2%;
+    color: #96a3a2;
+    font-weight: 300;
+    margin: 15px 0;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.small-textarea {
+    height: 30px;
+}
+
+a.get-jammin {
+    float: right;
+    background: #1b3a39;
+    color: #f1f2f2;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 18px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
