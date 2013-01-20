@@ -12,23 +12,27 @@ db.once('open', function callback () {
 var jammerSchema = mongoose.Schema({
     name: String,
     picture: String,
-    email: String
+    email: String,
+    skills: Array,
+    description: String
 })
 
 var Jammer = mongoose.model('Jammer', jammerSchema)
 
 
 
-exports.add = function(req, res) {
-  var CHATEAU = new Jammer(
+exports.create = function(req, res) {
+  var jammer = new Jammer(
         {
-            name: "CHATEAU DE SAINT COSME",
-            picture: "saint_cosme.jpg",
-            email: "contact@skilljam.co"
+            name: req.body.name,
+            picture: req.body.picture,
+            email: req.body.email,
+            skills: req.body.skills,
+            description: req.body.description
         });
 
-  console.log(CHATEAU);
-  CHATEAU.save(function(err, result){
+  console.log(jammer);
+  jammer.save(function(err, result){
     exports.findAll(req, res);
   });
 };

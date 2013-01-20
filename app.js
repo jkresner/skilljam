@@ -5,19 +5,14 @@ var app = express();
 
 app.configure(function () {
     app.use(express.static(__dirname + '/public'));
+    app.use(express.bodyParser());
+
 });
 
-// app.get('/', function(req, res){
-//   var body = 'Welcome to Skilljam';
-//   res.setHeader('Content-Type', 'text/plain');
-//   res.setHeader('Content-Length', body.length);
-//   res.end(body);
-// });
-
-
 app.get('/jammers', jammers.findAll);
-app.get('/jammers/add', jammers.add);
+app.post('/jammers', jammers.create);
 app.get('/jammers/:id', jammers.findById);
+
 
 
 
