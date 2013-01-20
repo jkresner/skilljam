@@ -35,10 +35,11 @@ passport.use(new FacebookStrategy({
     callbackURL: url_base +"/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-    Jammer.fbfindOrCreate( profile, function(err, user) {
-      if (err) { return done(err); }
-      done(null, user);
-    });
+      console.log('passport-facebook callback profile: '+ profile);
+    // Jammer.fbfindOrCreate( profile, function(err, user) {
+    //   if (err) { return done(err); }
+    //   done(null, user);
+    // });
   }
 ));
 
