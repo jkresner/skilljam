@@ -1,14 +1,13 @@
 window.JammerListView = Backbone.View.extend({
 
     initialize: function () {
-        this.render();
-        this.collection.on("reset",this.render,this);
     },
 
     render: function () {
+
         var jammers = this.collection.models;
 
-        console.log('JammerListView.render');
+        console.log('JammerListView.render', this.collection.models.length);
 
         $(this.el).html('<div id="jammers_tiles" class="profiles span12"><ul class="thumbnails"></ul></div>');
 
@@ -20,7 +19,7 @@ window.JammerListView = Backbone.View.extend({
             for (var s = 0; s < skills_array.length; s++) {
                 skills_string += " " + skills_array[s].replace(' ','-');
             }
-            //console.log('skills_string', skills_string);
+            console.log('skills_string', skills_string);
 
             $('.thumbnails', this.el).append(
                 new JammerListItemView({
@@ -32,9 +31,9 @@ window.JammerListView = Backbone.View.extend({
         $container = this.$('#jammers_tiles');
         $container.isotope({ filter: '*', itemSelector: '.jammer' });
 
-        //console.log('$container', $container, $('#filters a'));
+        console.log('$container', $container, $('#filters a'));
 
-        $('#filters a').click(function(){
+        $('#filters a').on('click', function(){
           var selector = $(this).attr('data-filter');
           console.log('filtering', selector, $container);
           $container.isotope({ filter: selector, itemSelector: '.jammer' });
@@ -42,7 +41,15 @@ window.JammerListView = Backbone.View.extend({
         });
 
         return this;
+    },
+
+    clearRender: function()
+    {
+        this.$('#jammers_tiles').isotope('destroy');
+        $('#filters a').off('click');
+        this.$el.html('');
     }
+
 });
 
 window.JammerListItemView = Backbone.View.extend({

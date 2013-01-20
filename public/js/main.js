@@ -14,12 +14,14 @@ var AppRouter = Backbone.Router.extend({
         this.jammers.fetch();
     },
 
-    home: function (id) {
-        if (!this.homeView) {
-            this.homeView = new HomeView();
-        }
-        $('#content').html(this.homeView.el);
-    },
+    // home: function (id) {
+    //     this.jammerListView.clearRender()
+
+    //     if (!this.homeView) {
+    //         this.homeView = new HomeView();
+    //     }
+    //     $('#content').html(this.homeView.el);
+    // },
 
     refresh: function(page) {
         console.log('refreshing');
@@ -30,16 +32,22 @@ var AppRouter = Backbone.Router.extend({
     },
 
 	list: function(page) {
+        this.jammerListView = new JammerListView({collection: this.jammers});
         if (this.jammers.length > 0)
         {
-            console.log('list');
+            this.jammerListView.clearRender();
+
+            console.log('list.jammers', this.jammers.length);
             $("#content").html('')
             $("#content").append(new JammerBrowseView({collection:this.jammers}).el)
-            $("#content").append(new JammerListView({collection: this.jammers}).el);
+            console.log('this.jammerListView.el', this.jammerListView.el);
+            $("#content").append(this.jammerListView.render().el);
         }
     },
 
     jammerDetails: function (id) {
+        this.jammerListView.clearRender();
+
         if (this.jammers.length = 0) { return this.navigate("#list"); }
         idstr = id.toString();
         var jammer = _.find(this.jammers.models, function(m) { return m.get('_id') == idstr});
@@ -53,6 +61,8 @@ var AppRouter = Backbone.Router.extend({
 	},
 
     about: function () {
+        this.jammerListView.clearRender();
+
         if (!this.aboutView) {
             this.aboutView = new AboutView();
         }
