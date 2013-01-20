@@ -5,7 +5,7 @@ window.JammerListView = Backbone.View.extend({
     },
 
     render: function () {
-        var jammers = this.model.models;
+        var jammers = this.collection.models;
         var len = jammers.length;
         var startPos = (this.options.page - 1) * 8;
         var endPos = Math.min(startPos + 8, len);
@@ -16,7 +16,7 @@ window.JammerListView = Backbone.View.extend({
             $('.thumbnails', this.el).append(new JammerListItemView({model: jammers[i]}).render().el);
         }
 
-        $(this.el).append(new Paginator({model: this.model, page: this.options.page}).render().el);
+        $(this.el).append(new Paginator({model: this.collection, page: this.options.page}).render().el);
 
         return this;
     }

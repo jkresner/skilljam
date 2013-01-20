@@ -24,9 +24,11 @@ var AppRouter = Backbone.Router.extend({
 
 	list: function(page) {
         var p = page ? parseInt(page, 10) : 1;
-        var jammerList = new JammerCollection();
-        jammerList.fetch({success: function(){
-            $("#content").html(new JammerListView({model: jammerList, page: p}).el);
+        var jammers = new JammerCollection();
+        jammers.fetch({success: function(){
+            $("#content").html('')
+            $("#content").append(new JammerBrowseView().el)
+            $("#content").append(new JammerListView({collection: jammers, page: p}).el);
         }});
         this.headerView.selectMenuItem('home-menu');
     },
@@ -55,7 +57,8 @@ var AppRouter = Backbone.Router.extend({
 
 });
 
-utils.loadTemplate(['HomeView', 'HeaderView', 'JammerView', 'JammerListItemView', 'AboutView'], function() {
+utils.loadTemplate(['HomeView', 'HeaderView', 'JammerView',
+    'JammerListItemView', 'AboutView'], function() {
     app = new AppRouter();
     Backbone.history.start();
 });
