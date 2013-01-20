@@ -33,9 +33,28 @@ exports.create = function(req, res) {
 
   console.log(jammer);
   jammer.save(function(err, result){
-    exports.findAll(req, res);
+    return result;
   });
 };
+
+
+exports.update = function(req, res) {
+  var _id = req.params.id;
+  var updates =
+        {
+            name: req.body.name,
+            picture: req.body.picture,
+            email: req.body.email,
+            skills: req.body.skills,
+            description: req.body.description
+        };
+
+  Jammer.update({_id: _id }, updates, { multi: true }, function(err, result){
+    exports.findById(req, res);
+  });
+};
+
+
 
 exports.findById = function(req, res) {
   var id = req.params.id;
@@ -48,6 +67,13 @@ exports.findAll = function(req, res) {
 
   Jammer.find(function(err, items){
     console.log('findAll.find()', err, items);
+    res.send(items);
+  });
+};
+
+
+exports.search = function(req, res) {
+  Jammer.find({'skills.name':req.params.skill},function(err, items){
     res.send(items);
   });
 };

@@ -5,9 +5,36 @@ window.JammerView = Backbone.View.extend({
     },
 
     render: function () {
+        console.log('jammer.model', this.model.toJSON());
+
         $(this.el).html(this.template(this.model.toJSON()));
 
-        this.$("#skills").tokenInput('/skills', { theme: 'facebook' });
+        model = this.model;
+        skillsInput = this.$("#skills");
+
+        skillsInput.tokenInput('/skills', { theme: 'facebook',
+            onReady: function()
+            {
+                var skills = model.get('skills');
+                for (var i=0;i<skills.length;i=i+1)
+                {
+                    token = { id: skills[i]._id, name: skills[i].name }
+                    skillsInput.tokenInput("add", token);
+                }
+            },
+            onAdd: function(item) {
+                var skills = model.get('skills');
+                skills.push(item);
+                console.log('addskills', skills);
+                model.save('skills', skills);
+            },
+            onDelete: function(item) {
+                var skills = model.get('skills');
+                skills = _.without(skills, item);
+                model.save('skills', skills);
+                console.log('deleteskills', skills);
+            }
+         });
 
         return this;
     },
@@ -20,8 +47,8 @@ window.JammerView = Backbone.View.extend({
     },
 
     change: function (event) {
-        // Remove any existing alert message
-        utils.hideAlert();
+        // Remove any existing alert utils
+        message.hideAlert();
 
         // Apply the change to the model
         var target = event.target;

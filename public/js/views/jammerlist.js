@@ -2,6 +2,7 @@ window.JammerListView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
+        this.collection.on("reset",this.render,this);
     },
 
     render: function () {
