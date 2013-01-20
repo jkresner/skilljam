@@ -8,8 +8,18 @@ window.JammerBrowseView = Backbone.View.extend({
     render: function () {
 
       this.$el.html(this.template());
+      collection = this.collection;
+      this.$("#searchskills").tokenInput('/skills',
+          { theme: 'facebook', tokenLimit: 1, hintText: "Type a skill you want to learn",
 
-      this.$("#searchskills").tokenInput('/skills', { theme: 'facebook' });
+                onAdd: function(item) {
+                  console.log('search_skill', item.name);
+                  collection.url = "/jammers-search/" + item.name;
+                  collection.fetch();
+
+            },
+
+        });
 
       return this
     }

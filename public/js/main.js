@@ -12,6 +12,12 @@ var AppRouter = Backbone.Router.extend({
     initialize: function () {
         this.headerView = new HeaderView();
         $('.header').html(this.headerView.el);
+
+        that = this;
+        this.jammers = new JammerCollection();
+        this.jammers.fetch({success: function(){
+            that.list(1);
+        }});
     },
 
     home: function (id) {
@@ -24,20 +30,18 @@ var AppRouter = Backbone.Router.extend({
 
 	list: function(page) {
         var p = page ? parseInt(page, 10) : 1;
-        var jammers = new JammerCollection();
-        jammers.fetch({success: function(){
-            $("#content").html('')
-            $("#content").append(new JammerBrowseView().el)
-            $("#content").append(new JammerListView({collection: jammers, page: p}).el);
-        }});
+        $("#content").html('')
+        $("#content").append(new JammerBrowseView({collection:this.jammers}).el)
+        $("#content").append(new JammerListView({collection: this.jammers, page: p}).el);
         this.headerView.selectMenuItem('home-menu');
     },
 
     jammerDetails: function (id) {
-        var jammer = new Jammer({_id: id});
-        jammer.fetch({success: function(){
-            $("#content").html(new JammerView({model: jammer}).el);
-        }});
+        if (this.jammers.length = 0) { return this.navigate("#list"); }
+        idstr = id.toString();
+        var jammer = _.find(this.jammers.models, function(m) { return m.get('_id') == idstr});
+
+        $("#content").html(new JammerView({model: jammer}).el);
         this.headerView.selectMenuItem();
     },
 
