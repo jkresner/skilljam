@@ -23,9 +23,9 @@
 
         ul.skills li { list-style:none }
     </style>
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap-responsive.css" rel="stylesheet"> -->
     <link href="css/styles.css" rel="stylesheet">
-
+    <link href="css/override.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -36,18 +36,28 @@
 
 <body>
 
-<div class="header">Welcome to Skilljam!</div>
+    <div class="header">
+        <div class="container">
+            <a href="/"><img src="img/logo.png"/></a>
+            <ul class="log">
+                <li><a class="lighter" href="#">login</a></li>
+                <li><a href="signup.html">sign up</a></li>
+                <li><a href="/auth/facebook">Login with Facebook</a></li>
+            </ul>
+        </div>
+    </div>
+
 
 <div class="container">
 
-    <a href="/auth/facebook">Login with Facebook</a>
-  
-    <div class="row-fluid">
-        <div id="content" class="span12>"></div>
+    <div class="row">
+
+        <div id="content">
+        </div>
     </div>
 
-    <footer class="footer">
-        <p class="pull-right"><a href="#">Back Home</a></p>
+   <footer class="footer">
+        <p>Copyright 2013 SkillJam Hackathon team &copy; </p>
     </footer>
 
 </div>
@@ -61,6 +71,7 @@
 <script src="lib/backbone-min.js"></script>
 <script src="lib/bootstrap.min.js"></script>
 <script src="lib/jquery.tokeninput.js"></script>
+<script src="lib/jquery.isotope.js"></script>
 
 <script src="js/utils.js"></script>
 <script src="js/models/models.js"></script>
@@ -73,26 +84,28 @@
 <script src="js/main.js"></script>
 
 <script type="text/template" id="JammerBrowseView">
-  <div id="browse">
-    <input type="text" id="searchskills" />
-  </div>
-</script>
+  <div class="face span12"><img src="img/faces.png"/></div>
 
-<script type="text/template" id="JammerSkillsView">
-  <div>
-    <em>Multiple Select</em>
-    <select data-placeholder="Your Favorite Types of Bear" style="width:350px;" multiple class="chzn-select" tabindex="8">
-      <option value=""></option>
-      <option>American Black Bear</option>
-      <option>Asiatic Black Bear</option>
-      <option>Brown Bear</option>
-      <option>Giant Panda</option>
-      <option selected>Sloth Bear</option>
-      <option disabled>Sun Bear</option>
-      <option selected>Polar Bear</option>
-      <option disabled>Spectacled Bear</option>
-    </select>
+  <!--
+  <div class="span12">
+           <input id="searchskills" class="search" type="text" onfocus="this.value=''; this.onfocus=null;" placeholder="what skills would you like to jam on?"/>
   </div>
+  -->
+
+
+  <div class="popular span12">
+      <p>popular skills</p>
+      <ul id="filters">
+          <li><span class='label'><a href="#" data-filter=".rails">rails</a><span></li>
+          <li><span class='label label-success'><a href="#" data-filter=".fundraising">fundraising</a><span></li>
+          <li><span class='label label-warning'><a href="#" data-filter=".javascript">javascript</a><span></li>
+          <li><span class='label label-important'><a href="#" data-filter=".growth-hacking">growth hacking</a><span></li>
+          <li><span class='label label-info'><a href="#" data-filter=".ux-design">ux design</a><span></li>
+          <li><span class='label label-inverse'><a href="#" data-filter=".objective-c">objective C</a><span></li>
+      </ul>
+  </div>
+
+
 </script>
 
 

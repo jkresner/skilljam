@@ -1,0 +1,412 @@
+body{
+    margin:0 auto;
+    padding-top:0;
+    background:transparent url(../img/bg.png) repeat 0 0;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, sans-serif;
+    font-weight:300;
+}
+
+/*---------------------*/
+/*General Styles*/
+/*---------------------*/
+.header{
+    background-color:#1b3a39;
+    height:80px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    width:100%;
+
+}
+
+ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.black{
+    background-color:black;
+}
+
+.log{
+    float:right;
+    color:#f1f2f2;
+    list-style:none;
+    margin-top:30px;
+}
+
+.log li{
+    float:left;
+    margin-left:20px;
+}
+
+a.lighter, p.lighter{
+    color:#808285 !important;
+}
+
+.log li a{
+    color:#f1f2f2;
+    text-decoration:none;
+}
+
+.footer{
+    background-color:#C5D7D7;
+    color:#f1f2f2;
+    width:100%;
+}
+
+.footer p{
+    margin-left:30px;
+}
+
+/*---------------------*/
+/*Search Page*/
+/*---------------------*/
+.face{
+    height:150px;
+    text-align:center;
+    padding-top:50px;
+}
+
+.search{
+    width:97% !important;
+    height:50px !important;
+    background-color:#c5d7d7 !important;
+    box-shadow:0 !important;
+    border:0px !important;
+    border-radius:20px !important;
+    color:#1b3a39 !important;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif !important;
+    font-size:24px !important;
+    font-weight:300 !important;
+    padding-left:3% !important;
+}
+
+.popular{
+    margin-top:20px;
+    margin-bottom:50px;
+    padding-bottom:20px;
+    border-bottom:1px solid #c5d7d7;
+}
+    .popular p{
+        color:#333333;
+        font-size:18px;
+    }
+
+    .popular li:hover{
+        -webkit-transition: background 0.5s;
+        background:black !important;
+    }
+
+    .popular a{
+        color:#c5d7d7;
+        text-decoration:none;
+    }
+
+li.highlight{
+    background-color:#1b3a38 !important;
+}
+
+li.last{
+    margin-right:0px !important;
+}
+
+
+/*Search searchable profiles*/
+.profiles{
+
+}
+
+    .profiles li{
+        float:left;
+        width:110px;
+        margin-right:31px;
+        height:220px;
+        border-radius:20px;
+        background-color:#132623;
+        color:#c5d7d7;
+        text-align:left;
+        font-size:12px;
+        padding:10px;
+        line-height:21px;
+        margin-bottom:30px;
+    }
+
+    .profiles li:hover{
+        -webkit-transition: background 0.5s;
+        background:black !important;
+    }
+
+    .profiles li img{
+        margin-bottom:10px;
+        border-radius:10px;
+
+    }
+
+
+
+/*---------------------*/
+/*profile page styling*/
+/*---------------------*/
+.profilepage{
+    margin-top:85px;
+    font-size:30px;
+    color:#132623;
+    line-height:23px;
+}
+    .kenny{
+        border:none;
+        border-radius:10px;
+        width:139px;
+        height:139px;
+    }
+
+    .profilepage p{
+        margin-left:0;
+        padding-left:0;
+    }
+
+.social{
+        margin-right:20px;
+        margin-top:15px;
+    }
+
+/*bank counter and text*/
+.jbank{
+    margin-top:85px;
+    color:#132623;
+    font-size:15px;
+}
+    .jbank ul{
+        margin-left:97px;
+    }
+    .jbank li{
+        float:left;
+    }
+
+/*styles bank counter*/
+.banktext{
+    margin-top:14px;
+    width:40px;
+    text-align:right;
+}
+.bank{
+    background-color:#132623;
+    border-radius:20px;
+    width:112px;
+    height:85px;
+    margin-left:20px;
+}
+
+    .bank p{
+        color:#C5D7D7;
+        margin-left:35px;
+    }
+ /*larger text for number in jam bank*/
+    .number{
+        font-size:36px;
+        padding-top:22px;
+    }
+
+    .unit{
+        font-size:18px;
+    }
+
+.jamrequest{
+    margin-top:20px;
+}
+
+/*bio description profile page*/
+.bio{
+    background-color:#C5D7D7;
+    border-radius:20px;
+    color:#1B3A39;
+}
+    .bio p{
+        margin:20px;
+        font-size:18px;
+    }
+
+
+
+        /* Alyssa's Code */
+
+a:hover{
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 300;
+    font-family: HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Hevetica;
+    color: 132623;
+}
+
+.signup {
+    height: auto !important;
+    padding-top: 100px !important;
+}
+
+.signup p {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.signup h1 {
+    margin-top: 70px;
+}
+
+.signup h2 {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 20px;
+    margin: 150px 0 10px 0;
+}
+
+.container {
+    padding-bottom: 400px;
+}
+
+a.signup-button {
+    color: #f1f2f2;
+    padding: 15px 50px;
+    background: #132623;
+    font-size: 21px;
+    border-radius: 20px;
+    margin-top: 50px;
+    font-weight: 300;
+}
+
+a.signup-button:hover {
+    background: #1B3A39;
+    -webkit-transition: background 1s;
+}
+
+p.small-text {
+    margin: 0;
+}
+
+form.skills-add {
+    width: 260px;
+    background: #1b3a39;
+    height: 300px;
+    margin-top: 10px;
+    border-radius: 20px;
+    margin-left: 316px;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+form.skills-add ul {
+    margin-left: 86px;
+}
+
+.label a {
+    color: white;
+}
+
+.label a:hover {
+    color: black;
+}
+
+.label {
+    font-weight: 300;
+    padding: 5px 10px;
+    line-height: 18px;
+    width: 70px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+li .label {
+    float: left;
+    text-align: center;
+}
+
+li .selected-skill {
+    border: 3px solid #f1f2f2;
+}
+
+.skill-description {
+    font-size: 18px !important;
+    margin-top: 15px;
+}
+
+/* footer */
+
+footer {
+    width: 100%;
+    height: 50px;
+}
+
+/* index */
+
+.popular li .label {
+    width: 126px !important;
+}
+
+.profiles li .label {
+    width: auto !important;
+    font-size: 10px;
+    padding:3px 5px;
+}
+
+.profiles u
+    overflow: hidden;
+}
+
+.skill-last {
+    height: 65px;
+    overflow: hidden;
+}
+
+/**** Isotope Filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+
