@@ -9,8 +9,6 @@ window.JammerBrowseView = Backbone.View.extend({
 
       this.$el.html(this.template());
 
-      console.log('JammerBrowseView', this.template(), this.$('.chzn-select'))
-
       this.$("#searchskills").tokenInput('/skills', { theme: 'facebook' });
 
       return this

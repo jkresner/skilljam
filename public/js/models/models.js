@@ -39,7 +39,7 @@ window.Jammer = Backbone.Model.extend({
         // grapes: "",
         // country: "USA",
         // region: "California",
-        // year: "",
+        skills: [],
         description: "",
         picture: null
     }
