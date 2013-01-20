@@ -58,8 +58,7 @@
   "dependencies" : {
     "express": "3.x",
     "mongoose": "3.5.x",
-    "passport": "x",
-    "passport-facebook": "x"
+    "passport": "x"
   },
   "analyze": false,
   "engines": {
