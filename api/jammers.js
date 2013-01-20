@@ -33,7 +33,7 @@ exports.create = function(req, res) {
 
   console.log(jammer);
   jammer.save(function(err, result){
-    return result;
+    res.send(result);
   });
 };
 
@@ -78,3 +78,10 @@ exports.search = function(req, res) {
   });
 };
 
+
+exports.deleteAll = function(req, res) {
+  Jammer.find().remove(
+    function(err, result) {
+      res.send(result);
+    });
+};

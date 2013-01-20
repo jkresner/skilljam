@@ -1,12 +1,12 @@
 var AppRouter = Backbone.Router.extend({
 
     routes: {
-        ""                  : "home",
-        "jammers"	: "list",
-        "jammers/page/:page"	: "list",
+        ""	                  : "list",
+        "/page/:page"	      : "list",
         "jammers/add"         : "addJammer",
-        "jammer/:id"         : "jammerDetails",
-        "about"             : "about"
+        "jammer/:id"          : "jammerDetails",
+        "about"               : "about",
+        "refresh"             : "refresh"
     },
 
     initialize: function () {
@@ -16,7 +16,7 @@ var AppRouter = Backbone.Router.extend({
         that = this;
         this.jammers = new JammerCollection();
         this.jammers.fetch({success: function(){
-            that.list(1);
+            that.navigate('', false);
         }});
     },
 
@@ -28,11 +28,16 @@ var AppRouter = Backbone.Router.extend({
         this.headerView.selectMenuItem('home-menu');
     },
 
+    refresh: function(page) {
+        this.jammers.fetch({success: function(){
+            that.navigate('', false);
+        }});
+    },
+
 	list: function(page) {
-        var p = page ? parseInt(page, 10) : 1;
         $("#content").html('')
         $("#content").append(new JammerBrowseView({collection:this.jammers}).el)
-        $("#content").append(new JammerListView({collection: this.jammers, page: p}).el);
+        $("#content").append(new JammerListView({collection: this.jammers}).el);
         this.headerView.selectMenuItem('home-menu');
     },
 
@@ -63,6 +68,6 @@ var AppRouter = Backbone.Router.extend({
 
 utils.loadTemplate(['HomeView', 'HeaderView', 'JammerView',
     'JammerListItemView', 'AboutView'], function() {
-    app = new AppRouter();
+    window.app = new AppRouter();
     Backbone.history.start();
 });

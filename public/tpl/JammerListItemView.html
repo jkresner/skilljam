@@ -1,9 +1,9 @@
 <a href="#jammer/<%= _id %>" class="thumbnail plain" style="text-align: center;">
     <img src="<%= picture === null ? 'pics/generic.jpg' : 'pics/' + picture %>" height="150" width="125" alt="">
     <h5><%= name %></h5>
-    <ul>
+    <ul class="skills">
       <% _.each(skills, function(skill) { %>
-        <li><%= name.skill %></li>
+        <li><span class="label"><%= skill.name %></span></li>
       <% }) %>
     </ul>
 </a>
