@@ -1,0 +1,68 @@
+{
+  "name": "Skilljam",
+  "preferGlobal": "false",
+  "version": "0.0.1" ,
+  "author": "Team Skilljam",
+  "description": "A service in San Francisco that helps you find brilliant minds to learn from via 1 on 1 'Jam Sessions'",
+  "contributors": [
+    {
+      "name": "Jonathon Kresner",
+      "email": "jkresner@gmail..com"
+    },
+    {
+      "name": "Alyssa Ravasio",
+      "email": "alyssaravasio@gmail.com"
+    },
+    {
+      "name": "Alyssa Reese",
+      "email": "alyssa.reese@gmail.com"
+    },
+    {
+      "name": "Marak Squires",
+      "email": "marak@nodejitsu.com"
+    },
+    {
+      "name": "Crystal Shei",
+      "email": "crystalthanks@gmail.com"
+    },
+    {
+      "name": "Megumi Hora",
+      "email": "megumihora@gmail.com"
+    },
+    {
+      "name": "Stuart Schmukler",
+      "email": "sas1@uchicago.edu"
+    },
+    {
+      "name": "Abbie Braun",
+      "email": "abbielbraun@gmail.com"
+    }
+  ],
+  "bin": {
+    "http-server": "./bin/http-server"
+  },
+  "scripts": {
+    "start": "node ./bin/http-server",
+    "test": "vows --spec --isolate",
+    "predeploy": "echo This will be run before deploying the app",
+    "postdeploy": "echo This will be run after deploying the app"
+  },
+  "main": "./lib/http-server",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jkresner/skilljam.git"
+  },
+  "keywords": [
+    "hackathon"
+  ],
+  "dependencies" : {
+    "express": "3.x",
+    "mongoose": "3.5.x",
+    "passport": "x"
+  },
+  "analyze": false,
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  }
+}
