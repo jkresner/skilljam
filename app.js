@@ -4,8 +4,8 @@ var skills = require('./api/skills');
 
 // Set the port
 var port = process.env.PORT || 3000;
-var ip = process.env.IP || 'http://localhost';
-var url_base=ip + ':' + port;
+var url_base = process.env.IP || 'http://localhost:'+port;
+
 
 
 var express = require('express');
