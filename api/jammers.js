@@ -75,13 +75,14 @@ exports.findAll = function(req, res) {
 };
 
 exports.fbFindOrCreate = function(req, res) {
-    Jammer.fbFind(req, function(err, items) {
-	if (err != 0) { // Create
-	    console.log('fbFindOrCreate.fbFind() Create a Jammer', err, items);	  
-	} else {
-	    console.log('fbFindOrCreate.fbFind() Found a Jammer', err, items);	  	    
-	}
-    });
+    console.log('fbFindOrCreate.() Entry', req);	  
+    // Jammer.fbFind(req, function(err, items) {
+    // 	if (err != 0) { // Create
+    // 	    console.log('fbFindOrCreate.fbFind() Create a Jammer', err, items);	  
+    // 	} else {
+    // 	    console.log('fbFindOrCreate.fbFind() Found a Jammer', err, items);	  	    
+    // 	}
+    // });
 };
 
 exports.fbFind = function(req, res) { 
