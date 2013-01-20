@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/skilljam_db');
+var mongo_base = process.env.MONGOLAB_URI || 'mongodb://localhost/skilljam_db';
+
+mongoose.connect(mongo_base);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
