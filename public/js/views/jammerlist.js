@@ -8,11 +8,38 @@ window.JammerListView = Backbone.View.extend({
     render: function () {
         var jammers = this.collection.models;
 
-        $(this.el).html('<ul class="thumbnails"></ul>');
+        console.log('JammerListView.render');
+
+        $(this.el).html('<div id="jammers_tiles" class="profiles span12"><ul class="thumbnails"></ul></div>');
 
         for (var i = 0; i < jammers.length; i++) {
-            $('.thumbnails', this.el).append(new JammerListItemView({model: jammers[i]}).render().el);
+
+            var skills_string = "jammer";
+            skills_array = _.pluck( jammers[i].get('skills'),  'name' )
+            //console.log('skills_array', skills_array);
+            for (var s = 0; s < skills_array.length; s++) {
+                skills_string += " " + skills_array[s].replace(' ','-');
+            }
+            //console.log('skills_string', skills_string);
+
+            $('.thumbnails', this.el).append(
+                new JammerListItemView({
+                    className: skills_string,
+                    model: jammers[i]
+                }).render().el);
         }
+
+        $container = this.$('#jammers_tiles');
+        $container.isotope({ filter: '*', itemSelector: '.jammer' });
+
+        //console.log('$container', $container, $('#filters a'));
+
+        $('#filters a').click(function(){
+          var selector = $(this).attr('data-filter');
+          console.log('filtering', selector, $container);
+          $container.isotope({ filter: selector, itemSelector: '.jammer' });
+          return false;
+        });
 
         return this;
     }

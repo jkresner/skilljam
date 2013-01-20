@@ -45,25 +45,6 @@ window.JammerView = Backbone.View.extend({
         "drop #picture" : "dropHandler"
     },
 
-    change: function (event) {
-        // Remove any existing alert utils
-        /*message.hideAlert();
-
-        //   Apply the change to the model
-        var target = event.target;
-        var change = {};
-        change[target.name] = target.value;
-        this.model.set(change);
-
-        // Run validation rule (if any) on changed item
-        var check = this.model.validateItem(target.id);
-        if (check.isValid === false) {
-            utils.addValidationError(target.id, check.message);
-        } else {
-            utils.removeValidationError(target.id);
-        }*/
-    },
-
     saveJammer: function () {
         var self = this;
 
@@ -76,8 +57,8 @@ window.JammerView = Backbone.View.extend({
 
         this.model.save(data, {
             success: function (model) {
-                console.log('saved', model, window.app);
-                window.app.navigate('refresh', false);
+                console.log('saved', window.app.jammers, model);
+                window.app.jammers.fetch();
             },
             error: function () {
                 utils.showAlert('Error', 'An error occurred while trying to delete this item', 'alert-error');
