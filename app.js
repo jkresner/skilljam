@@ -6,7 +6,7 @@ var skills = require('./api/skills');
 var port = process.env.PORT || 3000;
 var url_base = process.env.IP || 'http://localhost:'+port;
 
-
+console.log(" Starting with base URL " + url_base);
 
 var express = require('express');
 var app = express();
