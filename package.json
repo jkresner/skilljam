@@ -57,7 +57,8 @@
   ],
   "dependencies" : {
     "express": "3.x",
-    "mongoose": "3.5.x"
+    "mongoose": "3.5.x",
+    "passport": "0.2.x"
   },
   "analyze": false,
   "engines": {

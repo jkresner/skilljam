@@ -1,3 +1,4 @@
+
 var jammers = require('./api/jammers');
 var skills = require('./api/skills');
 
@@ -10,20 +11,20 @@ app.configure(function () {
 
 });
 
+// URL's
 app.get('/skills', skills.findAll);
-
 app.get('/jammers', jammers.findAll);
 app.get('/jammers/:id', jammers.findById);
 app.post('/jammers', jammers.create);
 
+var passport = require('passport');
+app.post('/login', passport.authenticate('local', { successRedirect: '/',
+                                                    failureRedirect: '/login' }));
 
+// Set the port
+var port = process.env.PORT || 3000;
 
-app.listen(3000);
+// Start listening
+app.listen(port);
 
-
-
-console.log('Listening on port 3000');
-
-
-
-
+console.log('Listening on port '+ port);
