@@ -35,7 +35,7 @@ passport.use(new FacebookStrategy({
     callbackURL: url_base +"/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate( profile, function(err, user) {
+    Jammer.fbfindOrCreate( profile, function(err, user) {
       if (err) { return done(err); }
       done(null, user);
     });
