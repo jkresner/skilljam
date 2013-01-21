@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/skilljam_db');
+var mongo_base = process.env.MONGOLAB_URI || 'mongodb://localhost/skilljam_db';
+
+mongoose.connect(mongo_base);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -58,7 +60,6 @@ exports.update = function(req, res) {
 };
 
 
-
 exports.findById = function(req, res) {
   var id = req.params.id;
   Jammer.find({  _id: id }, function(err, items){
@@ -74,23 +75,6 @@ exports.findAll = function(req, res) {
   });
 };
 
-exports.fbFindOrCreate = function(req, res) {
-    console.log('fbFindOrCreate.() Entry', req);	  
-    // Jammer.fbFind(req, function(err, items) {
-    // 	if (err != 0) { // Create
-    // 	    console.log('fbFindOrCreate.fbFind() Create a Jammer', err, items);	  
-    // 	} else {
-    // 	    console.log('fbFindOrCreate.fbFind() Found a Jammer', err, items);	  	    
-    // 	}
-    // });
-};
-
-exports.fbFind = function(req, res) { 
-   Jammer.find({'facebook_id':req.params.facebook_id},function(err, items){
-    res.send(items);
-   });
-};
-
 exports.search = function(req, res) {
   Jammer.find({'skills.name':req.params.skill},function(err, items){
     res.send(items);
@@ -103,4 +87,21 @@ exports.deleteAll = function(req, res) {
     function(err, result) {
       res.send(result);
     });
+};
+
+exports.fbFindOrCreate = function(req, res) {
+    console.log('fbFindOrCreate.() Entry', req);	  
+    // Jammer.fbFind(req, function(err, items) {
+    // 	if (err != 0) { // Create
+    // 	    console.log('fbFindOrCreate.fbFind() Create a Jammer', err, items);	  
+    // 	} else {
+    // 	    console.log('fbFindOrCreate.fbFind() Found a Jammer', err, items);	  	    
+    // 	}
+    // });
+};
+
+exports.fbFind = function(req, res) { 
+   // Jammer.find({'facebook_id':req.params.facebook_id},function(err, items){
+   //  res.send(items);
+   // });
 };
