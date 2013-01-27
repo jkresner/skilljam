@@ -37,27 +37,39 @@
         </div>
     </div>
 
+    <style type="text/javascript">
+    $("#buttons a").click(function() {
+        var id = $(this).attr("id");
+        $("#pages div").css("display", "none");
+        $("#pages div#" + id + "").css("display", "block");
+    });
+    $("#pages div:not(#0)").css("display", "none");
+    </style>
+    
     <div class="container">
         <div class="row">
             <div id="content" class="face signup span12">
                 <img src="img/signup.png"/>
                 <h1>Get Your Jam On</h1>
                 <p>Welcome to SkillJam! Signup to start teaching & learning in your area</p>
-                <a href="/" class="signup-button">Request an Invite</a>
-
-
+	    <div id="buttons">
+	      <a href="#" id="1" class="signup-button">Request an Invite</a>
+	    </div>
+<div id="pages">
 <!-- Begin MailChimp Signup Form -->
 <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+  .mc_embed_signup{ clear:center;
+	      Helvetica,Arial,sans-serif; display: block }
   /* Add your own MailChimp form style overrides in your site stylesheet or in this style block
      We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
 </style>
 
-<div id="mc_embed_signup">
+  <br/>
+<div id="1" class="mc_embed_signup">
 
   <form action="http://alyssaravasio.us6.list-manage.com/subscribe/post?u=bb2192329222c73037976bfdc&amp;id=e41962ea74" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <label for="mce-EMAIL"> Request an invite: </label> 
+    <label for="mce-EMAIL"> Request an invite: </label> <br/>
     <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
     <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
   </form>
@@ -65,7 +77,7 @@
 </div>
 
 <!--End mc_embed_signup-->
-
+</div>
             </div>
         </div>
     </div>
