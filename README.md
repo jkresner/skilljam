@@ -10,7 +10,7 @@ Setup the heroku toolbelt and add this plugin:
 
       heroku plugins:install git://github.com/ddollar/heroku-config.git
 
- Use the commandm in your project root:
+ Use the command in your project root:
 
     git remote add heroku git@heroku.com:skilljam.git
 
